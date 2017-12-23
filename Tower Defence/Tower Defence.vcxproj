@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>.\SDL\include;$(IncludePath)</IncludePath>
-    <LibraryPath>.\SDL\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>.\SDL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>D:\Projects\Libaries\SDL2-2.0.7\include;$(IncludePath)</IncludePath>
