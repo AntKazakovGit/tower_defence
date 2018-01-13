@@ -13,14 +13,67 @@ public:
 
 	~TD_Render();
 
-	SDL_Texture *loadTexture(const std::string &path);
 
-	void renderTexture(SDL_Texture * texture, int x, int y, int width, int height);
+	/*
+	Загрузка текстуры
+	path - Путь до изображения
+	*/
+	SDL_Texture *LoadTexture(const std::string &path);
 
-	void renderTexture(SDL_Texture *tex, int x, int y);
 
+	/*
+	Рендер текстуры с масштабированием
+	texture - Отправляемая в рендер текстура
+	x - Координата текстуры по X
+	y - Координата текстуры по Y
+	width - Ширина текстуры после масштабирования
+	height - Высота текстуры после масштабирования
+	*/
+	void RenderTexture(SDL_Texture * texture, int x, int y, int width, int height);
+
+
+	/*
+	Рендер текстуры без масштабирования
+	texture - Отправляемая в рендер текстура
+	x - Координата текстуры по X
+	y - Координата текстуры по Y
+	*/	
+	void RenderTexture(SDL_Texture *texture, int x, int y);
+
+
+	/*
+	Рендер части текстуры с масштабированием
+	texture - Отправляемая в рендер текстура
+	src_x - Координата X той части текстуры которая будет отправлена в рендер
+	src_y - Координата Y той части текстуры которая будет отправлена в рендер
+	src_w - Ширина той части текстуры которая будет отправлена в рендер
+	src_h - Высота той части текстуры которая будет отправлена в рендер
+	dst_x - Координата текстуры по X
+	dst_y - Координата текстуры по Y
+	dst_w - Ширина текстуры после масштабирования
+	dst_h - Высота текстуры после масштабирования
+	*/
+	void RenderTexture(SDL_Texture *texture, int src_x, int src_y, int src_w, int src_h, int dst_x, int dst_y, int dst_w, int dst_h);
+
+
+	/*
+	Рендер части текстуры без масштабирования
+	texture - Отправляемая в рендер текстура
+	src_x - Координата X той части текстуры которая будет отправлена в рендер
+	src_y - Координата Y той части текстуры которая будет отправлена в рендер
+	src_w - Ширина той части текстуры которая будет отправлена в рендер
+	src_h - Высота той части текстуры которая будет отправлена в рендер
+	dst_x - Координата текстуры по X
+	dst_y - Координата текстуры по Y
+	*/
+	void RenderTexture(SDL_Texture *texture, int src_x, int src_y, int src_w, int src_h, int dst_x, int dst_y);
+
+
+	//Отрисовка рендерера
 	void Show();
 
+
+	//Очистка рендерера
 	void ClearScreen();
 };
 

@@ -7,11 +7,13 @@ TD_Render::TD_Render(SDL_Window *window)
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC);
 }
 
+
 TD_Render::~TD_Render()
 {
 }
 
-SDL_Texture * TD_Render::loadTexture(const std::string &path)
+
+SDL_Texture * TD_Render::LoadTexture(const std::string &path)
 {
 	SDL_Texture *texture = IMG_LoadTexture(renderer, path.c_str());
 	if (texture == nullptr) 
@@ -21,27 +23,58 @@ SDL_Texture * TD_Render::loadTexture(const std::string &path)
 	return texture;
 }
 
-void TD_Render::renderTexture(SDL_Texture *texture, int x, int y, int width, int height)
+
+void TD_Render::RenderTexture(SDL_Texture *texture, int x, int y, int width, int height)
 {
 	SDL_Rect dst;
 	dst.x = x;
 	dst.y = y;
 	dst.w = width;
 	dst.h = height;
+
 	SDL_RenderCopy(renderer, texture, NULL, &dst);
 }
 
-void TD_Render::renderTexture(SDL_Texture *tex, int x, int y)
+
+void TD_Render::RenderTexture(SDL_Texture *texture, int x, int y)
 {
 	int w, h;
-	SDL_QueryTexture(tex, NULL, NULL, &w, &h);
-	renderTexture(tex, x, y, w, h);
+	SDL_QueryTexture(texture, NULL, NULL, &w, &h);
+	RenderTexture(texture, x, y, w, h);
 }
+
+
+void TD_Render::RenderTexture(SDL_Texture * texture, int src_x, int src_y, int src_w, int src_h, int dst_x, int dst_y, int dst_w, int dst_h)
+{
+	SDL_Rect src;
+	src.x = src_x;
+	src.y = src_y;
+	src.w = src_w;
+	src.h = src_h;
+
+	SDL_Rect dst;
+	dst.x = dst_x;
+	dst.y = dst_y;
+	dst.w = dst_w;
+	dst.h = dst_h;
+
+	SDL_RenderCopy(renderer, texture, &src, &dst);
+}
+
+
+void TD_Render::RenderTexture(SDL_Texture * texture, int src_x, int src_y, int src_w, int src_h, int dst_x, int dst_y)
+{
+	int dst_w, dst_h;
+	SDL_QueryTexture(texture, NULL, NULL, &dst_w, &dst_h);
+	RenderTexture(texture, src_x, src_y, src_w, src_h, dst_x, dst_y, dst_w, dst_h);
+}
+
 
 void TD_Render::Show()
 {
 	SDL_RenderPresent(renderer);
 }
+
 
 void TD_Render::ClearScreen()
 {
