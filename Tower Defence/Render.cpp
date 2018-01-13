@@ -10,6 +10,7 @@ TD_Render::TD_Render(SDL_Window *window)
 
 TD_Render::~TD_Render()
 {
+
 }
 
 
@@ -24,32 +25,14 @@ SDL_Texture * TD_Render::LoadTexture(const std::string &path)
 }
 
 
-void TD_Render::RenderTexture(SDL_Texture *texture, int x, int y, int width, int height)
+void TD_Render::RenderTexture(SDL_Texture *texture, SDL_Rect dst)
 {
-	SDL_Rect dst;
-	dst.x = x;
-	dst.y = y;
-	dst.w = width;
-	dst.h = height;
-
 	SDL_RenderCopy(renderer, texture, NULL, &dst);
 }
 
 
-void TD_Render::RenderTexture(SDL_Texture * texture, int src_x, int src_y, int src_w, int src_h, int dst_x, int dst_y, int dst_w, int dst_h)
+void TD_Render::RenderTexture(SDL_Texture *texture, SDL_Rect src, SDL_Rect dst)
 {
-	SDL_Rect src;
-	src.x = src_x;
-	src.y = src_y;
-	src.w = src_w;
-	src.h = src_h;
-
-	SDL_Rect dst;
-	dst.x = dst_x;
-	dst.y = dst_y;
-	dst.w = dst_w;
-	dst.h = dst_h;
-
 	SDL_RenderCopy(renderer, texture, &src, &dst);
 }
 
