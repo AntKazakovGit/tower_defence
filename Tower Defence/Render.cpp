@@ -36,14 +36,6 @@ void TD_Render::RenderTexture(SDL_Texture *texture, int x, int y, int width, int
 }
 
 
-void TD_Render::RenderTexture(SDL_Texture *texture, int x, int y)
-{
-	int w, h;
-	SDL_QueryTexture(texture, NULL, NULL, &w, &h);
-	RenderTexture(texture, x, y, w, h);
-}
-
-
 void TD_Render::RenderTexture(SDL_Texture * texture, int src_x, int src_y, int src_w, int src_h, int dst_x, int dst_y, int dst_w, int dst_h)
 {
 	SDL_Rect src;
@@ -59,14 +51,6 @@ void TD_Render::RenderTexture(SDL_Texture * texture, int src_x, int src_y, int s
 	dst.h = dst_h;
 
 	SDL_RenderCopy(renderer, texture, &src, &dst);
-}
-
-
-void TD_Render::RenderTexture(SDL_Texture * texture, int src_x, int src_y, int src_w, int src_h, int dst_x, int dst_y)
-{
-	int dst_w, dst_h;
-	SDL_QueryTexture(texture, NULL, NULL, &dst_w, &dst_h);
-	RenderTexture(texture, src_x, src_y, src_w, src_h, dst_x, dst_y, dst_w, dst_h);
 }
 
 
