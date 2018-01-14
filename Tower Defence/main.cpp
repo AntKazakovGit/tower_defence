@@ -1,5 +1,6 @@
 #include <vector>
 #include "Render.h"
+#include "App.h"
 
 int main(int argc, char* args[])
 {
@@ -7,28 +8,11 @@ int main(int argc, char* args[])
 
 	TD_Render render = TD_Render(window);
 
-	bool running = true;
+	App::Init(&render);
 
-	SDL_Event Event;
+	App Scene1;
 
-	while (running)
-	{
-		//Поиск событий
-		while (SDL_PollEvent(&Event))
-		{
-			if (Event.type == SDL_QUIT)
-			{
-				running = false;
-			}
-		}
-		//Очистка экрана
-		render.ClearScreen();
-
-		//Добавить рендер текстур
-
-		//Вывод изображения
-		render.Show();
-	}
+	Scene1.Execution();
 
 	return 0;
 }
