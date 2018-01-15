@@ -18,6 +18,8 @@ private:
 	void Render();
 	//Вывод текстур в рендер
 	void DrawObjects();
+	//Обработка событий
+	void OnEvent();
 
 protected:
 	//Вектор графических объектов
