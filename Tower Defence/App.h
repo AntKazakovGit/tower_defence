@@ -28,6 +28,39 @@ protected:
 	//Занесение объектов в вектор
 	virtual void SetObjects();
 
+	//=======================================
+	// События
+	//=======================================
+
+	// Выход из приложения
+	void Event_Exit();
+
+	// Нажатие левой кнопки мыши
+	virtual void Event_LeftButtonDown();
+
+	// Нажатие правой кнопки мыши
+	virtual void Event_RightButtonDown();
+
+	// Нажатие средней кнопки мыши
+	virtual void Event_MiddleButtonDown();
+
+	// Отпускание левой кнопки мыши
+	virtual void Event_LeftButtonUp();
+
+	// Отпускание правой кнопки мыши
+	virtual void Event_RightButtonUp();
+
+	// Отпускание средней кнопки мыши
+	virtual void Event_MiddleButtonUp();
+	
+	// Нажатие клавиши
+	virtual void Event_KeyDown();
+
+	// Отпускание клавиши
+	virtual void Event_KeyUp();
+
+	//=======================================
+
 public:
 	App();
 
