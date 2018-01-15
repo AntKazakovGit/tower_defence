@@ -33,22 +33,26 @@ void App::Render()
 	render->Show();
 }
 
+void App::SetObjects()
+{
+	//virtual
+}
+
 void App::DrawObjects()
 {
 	for (int i = 0; i < objects.size(); i++)
 	{
 		objects[i].Show(render);
 	}
+	objects.clear();
 }
-
 
 
 // Protected
-void App::SetObjects()
+void App::AddEntities(Entity * entity)
 {
-	//virtual
+	objects.push_back(*entity);
 }
-
 
 
 // Public

@@ -14,6 +14,10 @@ private:
 	//События приложения
 	static SDL_Event appEvent;
 
+	// Вектор графических объектов
+	std::vector<Entity> objects;
+
+
 	//Вывод объектов на экран
 	void Render();
 	//Вывод текстур в рендер
@@ -21,12 +25,9 @@ private:
 	//Обработка событий
 	void OnEvent();
 
-protected:
-	//Вектор графических объектов
-	std::vector<Entity> objects;
-
-	//Занесение объектов в вектор
+	// Занесение объектов в вектор
 	virtual void SetObjects();
+
 
 	//=======================================
 	// События
@@ -52,7 +53,7 @@ protected:
 
 	// Отпускание средней кнопки мыши
 	virtual void Event_MiddleButtonUp();
-	
+
 	// Нажатие клавиши
 	virtual void Event_KeyDown();
 
@@ -60,6 +61,10 @@ protected:
 	virtual void Event_KeyUp();
 
 	//=======================================
+
+protected:
+	// Добавление объектов в вектор
+	void AddEntities(Entity *entity);
 
 public:
 	App();
