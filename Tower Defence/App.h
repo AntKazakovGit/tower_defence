@@ -11,15 +11,20 @@ private:
 	static bool running;
 	//Рендер приложания
 	static TD_Render *render;
+	//События приложения
+	static SDL_Event appEvent;
 
-	//Занесение объектов в вектор
-	virtual void SetObjects();
+	//Вывод объектов на экран
+	void Render();
 	//Вывод текстур в рендер
 	void DrawObjects();
 
 protected:
 	//Вектор графических объектов
 	std::vector<Entity> objects;
+
+	//Занесение объектов в вектор
+	virtual void SetObjects();
 
 public:
 	App();
@@ -31,9 +36,6 @@ public:
 	Render - рендер окна используемого в приложании
 	*/
 	static void Init(TD_Render *Render);
-
-	//Вывод объектов на экран
-	void Render();
 
 	//Выполнение приложение
 	void Execution();
