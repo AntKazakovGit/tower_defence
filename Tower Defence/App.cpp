@@ -33,11 +33,6 @@ void App::Render()
 	render->Show();
 }
 
-void App::SetObjects()
-{
-	//virtual
-}
-
 void App::DrawObjects()
 {
 	for (int i = 0; i < objects.size(); i++)
@@ -45,6 +40,23 @@ void App::DrawObjects()
 		objects[i].Show(render);
 	}
 	objects.clear();
+}
+
+
+// Private - virtual
+void App::SceneInit()
+{
+	//virtual
+}
+
+void App::SceneUpdate()
+{
+	//virtual
+}
+
+void App::SetObjects()
+{
+	//virtual
 }
 
 
@@ -64,14 +76,20 @@ void App::Init(TD_Render * Render)
 
 void App::Execution()
 {
+	//Инициализация объектов и параметров сцены
+	SceneInit();
+
 	while (running)
 	{
-		//Поиск событий
+		// Изменение и обновление объектов и параметров сцены
+		SceneUpdate();
+		// Поиск событий
 		while (SDL_PollEvent(&appEvent))
 		{
 			OnEvent();
 		}
 
+		// Вывод объектов на экран
 		Render();
 	}
 }
