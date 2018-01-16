@@ -1,6 +1,6 @@
 #include <vector>
 #include "Render.h"
-#include "App.h"
+#include "Game.h"
 
 int main(int argc, char* args[])
 {
@@ -14,7 +14,7 @@ int main(int argc, char* args[])
 	App::Init(&render);
 	
 	//Создание сцены
-	App Scene1;
+	Game Scene1;
 
 	// Выполнение сцены
 	Scene1.Execution();
