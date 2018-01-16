@@ -10,6 +10,10 @@ class Entity
 	//Координаты и размеры объекта
 	SDL_Rect rect;
 
+protected:
+	// Изменение координат объекта
+	void SetPosition(int new_X, int new_Y);
+
 public:
 	/*
 	Конструктор объекта без масштабирования 

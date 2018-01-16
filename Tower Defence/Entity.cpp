@@ -1,11 +1,17 @@
 #include "Entity.h"
 
 
+void Entity::SetPosition(int new_X, int new_Y)
+{
+	rect.x = new_X;
+	rect.y = new_Y;
+}
+
+
 Entity::Entity(SDL_Texture * entityTexture, int X, int Y)
 {
 	texture = entityTexture;
-	rect.x = X;
-	rect.y = Y;
+	SetPosition(X, Y);
 	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 }
 
@@ -13,8 +19,7 @@ Entity::Entity(SDL_Texture * entityTexture, int X, int Y)
 Entity::Entity(SDL_Texture * entityTexture, int X, int Y, int Width, int Height)
 {
 	texture = entityTexture;
-	rect.x = X;
-	rect.y = Y;
+	SetPosition(X, Y);
 	rect.w = Width;
 	rect.h = Height;
 }
