@@ -6,6 +6,8 @@
 class Game :
 	public App
 {
+	//Название загружаемого уровня
+	std::string LevelName;
 	// Имеющееся у игрока золото для постройки башен
 	int gold;
 	// Список существующих на текущий момент врагов
@@ -15,13 +17,13 @@ class Game :
 
 	// Переопределение SetObjects
 	void SetObjects();
-	// Переопределение SceneInit
-	void SceneInit();
+	// Переопределение SceneRestart
+	void SceneRestart();
 	// Переопределение SceneUpdate
 	void SceneUpdate();
 
 public:
-	Game();
+	Game(std::string *CurrentLvl);
 	~Game();
 };
 

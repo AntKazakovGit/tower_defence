@@ -15,9 +15,14 @@ void Game::SetObjects()
 	}
 }
 
-void Game::SceneInit()
+void Game::SceneRestart()
 {
-	// Добавить инициализацию
+	// Удаление всех объектов
+	//bullets.clear();
+	enemies.clear();
+	towers.clear();
+
+	// Инициализация параметров и объектов
 }
 
 void Game::SceneUpdate()
@@ -25,8 +30,9 @@ void Game::SceneUpdate()
 	// Добавить обновления объектов и параметров
 }
 
-Game::Game()
+Game::Game(std::string *CurrentLvl)
 {
+	LevelName = *CurrentLvl;
 }
 
 
