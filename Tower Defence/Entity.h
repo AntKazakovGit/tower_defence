@@ -7,12 +7,10 @@ class Entity
 {
 	//Текстура объекта
 	SDL_Texture *texture;
-	//Координаты и размеры объекта
-	SDL_Rect rect;
 
 protected:
-	// Изменение координат объекта
-	void SetPosition(int new_X, int new_Y);
+	//Координаты и размеры объекта
+	SDL_Rect rect;
 
 public:
 	/*
