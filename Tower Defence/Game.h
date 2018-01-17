@@ -6,13 +6,19 @@
 class Game :
 	public App
 {
-	//Список существующих на текущий момент врагов
+	// Имеющееся у игрока золото для постройки башен
+	int gold;
+	// Список существующих на текущий момент врагов
 	std::vector<Enemy> enemies;
-	//Список существующих на карте башен
+	// Список существующих на карте башен
 	std::vector<Tower> towers;
 
-	//Переопределение SetObjects
+	// Переопределение SetObjects
 	void SetObjects();
+	// Переопределение SceneInit
+	void SceneInit();
+	// Переопределение SceneUpdate
+	void SceneUpdate();
 
 public:
 	Game();

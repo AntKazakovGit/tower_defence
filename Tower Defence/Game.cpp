@@ -15,6 +15,16 @@ void Game::SetObjects()
 	}
 }
 
+void Game::SceneInit()
+{
+	// Добавить инициализацию
+}
+
+void Game::SceneUpdate()
+{
+	// Добавить обновления объектов и параметров
+}
+
 Game::Game()
 {
 }
