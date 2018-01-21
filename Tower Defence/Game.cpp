@@ -30,9 +30,9 @@ void Game::SceneUpdate()
 	// Добавить обновления объектов и параметров
 }
 
-Game::Game(std::string *CurrentLvl)
+Game::Game()
 {
-	LevelName = *CurrentLvl;
+
 }
 
 
