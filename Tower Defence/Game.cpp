@@ -27,8 +27,9 @@ void Game::SceneRestart()
 
 void Game::SceneUpdate()
 {
-	// Добавить обновления объектов и параметров
+
 }
+
 
 Game::Game()
 {

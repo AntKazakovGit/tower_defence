@@ -9,7 +9,7 @@ class Enemy :
 {
 	//Уровень здоровья 
 	int health;
-
+	
 	//Можно добавить маг. резист, броню, бафы и дебафы
 public:
 	Enemy(SDL_Texture * enemyTexture, int X, int Y);
@@ -17,6 +17,8 @@ public:
 	Enemy(SDL_Texture * enemyTexture, int X, int Y, int Width, int Height);
 
 	~Enemy();
+
+	void Move();
 };
 
 

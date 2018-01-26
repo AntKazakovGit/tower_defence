@@ -11,8 +11,6 @@ private:
 	static bool running;
 	//Рендер приложания
 	static TD_Render *render;
-	//События приложения
-	static SDL_Event appEvent;
 
 	// Вектор графических объектов
 	std::vector<Entity> objects;
@@ -66,6 +64,9 @@ private:
 	//=======================================
 
 protected:
+	//События приложения
+	static SDL_Event appEvent;
+
 	// Добавление объектов в вектор
 	void AddEntities(Entity *entity);
 
