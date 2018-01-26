@@ -66,6 +66,11 @@ void App::AddEntities(Entity * entity)
 	objects.push_back(*entity);
 }
 
+SDL_Texture * App::LoadTexture(std::string path)
+{
+	return render->LoadTexture(path);
+}
+
 
 // Public
 void App::Init(TD_Render * Render)

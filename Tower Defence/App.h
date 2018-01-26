@@ -69,6 +69,8 @@ protected:
 	// Добавление объектов в вектор
 	void AddEntities(Entity *entity);
 
+	SDL_Texture *LoadTexture(std::string path);
+
 public:
 	App();
 
