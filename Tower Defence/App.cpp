@@ -44,7 +44,7 @@ void App::DrawObjects()
 
 
 // Private - virtual
-void App::SceneRestart()
+void App::SceneInit()
 {
 	//virtual
 }
@@ -82,7 +82,7 @@ void App::Init(TD_Render * Render)
 void App::Execution()
 {
 	//Инициализация объектов и параметров сцены
-	SceneRestart();
+	SceneInit();
 
 	while (running)
 	{

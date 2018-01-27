@@ -15,18 +15,23 @@ void Game::SetObjects()
 	}
 }
 
-void Game::SceneRestart()
+void Game::SceneInit()
 {
-	// Удаление всех объектов
-	//bullets.clear();
 	enemies.clear();
 	towers.clear();
-
-	// Инициализация параметров и объектов
 }
 
 void Game::SceneUpdate()
 {
+	// Перемещение всех врагов
+	for (int i = 0; i < enemies.size(); i++)
+	{
+		if (!enemies[i].Move(paths))
+		{
+			castleHealth -= 1;
+			enemies.erase(enemies.begin() + i);
+		}
+	}
 
 }
 

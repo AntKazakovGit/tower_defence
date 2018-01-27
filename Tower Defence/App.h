@@ -24,7 +24,7 @@ private:
 	void OnEvent();
 
 	// Сброс всех объектов сцены
-	virtual void SceneRestart();
+	virtual void SceneInit();
 	// Обновление сцены
 	virtual void SceneUpdate();
 	// Занесение объектов в вектор
