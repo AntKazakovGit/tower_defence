@@ -4,6 +4,8 @@
 
 void Game::SetObjects()
 {
+	AddEntities(&map);
+
 	for (int i = 0; i < enemies.size(); i++)
 	{
 		AddEntities(&enemies[i]);

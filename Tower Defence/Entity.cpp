@@ -2,6 +2,12 @@
 
 
 
+Entity::Entity()
+{
+
+}
+
+
 Entity::Entity(SDL_Texture * entityTexture, int X, int Y)
 {
 	texture = entityTexture;
