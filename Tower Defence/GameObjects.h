@@ -11,14 +11,11 @@ enum Directions
 	Bottom
 };
 
-
-
 struct path
 {
 	int distance;
 	Directions direction;
 };
-
 
 //Класс описывает обьект "Враг"
 class Enemy :
@@ -37,7 +34,7 @@ class Enemy :
 
 	//Можно добавить маг. резист, броню, бафы и дебафы
 public:
-	Enemy(SDL_Texture * enemyTexture, int X, int Y);
+	Enemy(SDL_Texture * enemyTexture, int X, int Y, int health, int speed	);
 
 	~Enemy();
 

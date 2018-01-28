@@ -5,10 +5,9 @@
 //=== Методы класса Enemy ===============================================
 //=======================================================================
 
-Enemy::Enemy(SDL_Texture * enemyTexture, int X, int Y) : Entity(enemyTexture, X, Y)
+Enemy::Enemy(SDL_Texture * enemyTexture, int X, int Y, int health, int speed) : health(health), speed(speed),	Entity(enemyTexture, X, Y)
 {
 	lastMove = SDL_GetTicks();
-	// Добавить инициализацию скорости и уровня здоровья
 }
 
 Enemy::~Enemy()
@@ -16,7 +15,7 @@ Enemy::~Enemy()
 
 }
 
-
+// Переделать
 bool Enemy::Move(std::vector<path> paths)
 {
 	if (paths.size() == 0)
@@ -41,8 +40,11 @@ bool Enemy::Move(std::vector<path> paths)
 		{
 			if (SDL_GetTicks() - lastMove >= 60000 / speed)
 			{
-				int distance = (int)((SDL_GetTicks() - lastMove) * ((double)speed / 60000));
-
+				int distance;
+				if ((int)((SDL_GetTicks() - lastMove) * ((double)speed / 60000)) <= paths[currentPath].distance - pathsPassed)
+					distance = (int)((SDL_GetTicks() - lastMove) * ((double)speed / 60000));
+				else
+					distance = paths[currentPath].distance - pathsPassed;
 				switch (paths[currentPath].direction)
 				{
 				case Directions::Left:
@@ -52,10 +54,10 @@ bool Enemy::Move(std::vector<path> paths)
 					rect.x += distance;
 					break;
 				case Directions::Top:
-					rect.y -= 1;
+					rect.y -= distance;
 					break;
 				case Directions::Bottom:
-					rect.y += 1;
+					rect.y += distance;
 					break;
 				}
 				pathsPassed += distance;
