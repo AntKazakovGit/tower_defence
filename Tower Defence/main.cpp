@@ -3,7 +3,9 @@
 #include "Game.h"
 
 int main(int argc, char* args[])
-{
+{	
+	TTF_Init();
+
 	// Создание окна 
 	SDL_Window *window = SDL_CreateWindow("Tower Defence", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
 	

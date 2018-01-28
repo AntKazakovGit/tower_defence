@@ -72,6 +72,8 @@ protected:
 
 	SDL_Texture *LoadTexture(std::string path);
 
+	SDL_Texture *LoadText(std::string textureText, TTF_Font *font, SDL_Color textColor, int size);
+
 public:
 	App();
 

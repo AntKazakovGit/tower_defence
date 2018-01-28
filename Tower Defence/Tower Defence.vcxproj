@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\SDL\include;.\SDL\SDL_Image\include;$(IncludePath)</IncludePath>
-    <LibraryPath>.\SDL\lib;.\SDL\SDL_image\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>.\SDL\include;.\SDL\SDL_Image\include;.\SDL\SDL_TTF\include;$(IncludePath)</IncludePath>
+    <LibraryPath>.\SDL\lib;.\SDL\SDL_image\lib;.\SDL\SDL_TTF\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>D:\Projects\Libaries\SDL2-2.0.7\include;$(IncludePath)</IncludePath>
@@ -85,7 +85,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>

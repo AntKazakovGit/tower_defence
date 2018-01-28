@@ -2,6 +2,7 @@
 
 #include "App.h"
 #include "GameObjects.h"
+#include <sstream>
 
 class Game :
 	public App
@@ -20,6 +21,9 @@ class Game :
 	Entity gameOver;
 	// Победа
 	Entity victory;
+	// Шрифт для теста игры
+	TTF_Font *font = NULL;
+
 	// Список существующих на текущий момент врагов
 	std::vector<Enemy> enemies;
 	// Список существующих на карте башен

@@ -24,6 +24,17 @@ SDL_Texture * TD_Render::LoadTexture(const std::string &path)
 	return texture;
 }
 
+SDL_Texture * TD_Render::LoadText(std::string textureText, TTF_Font *font, SDL_Color textColor, int size)
+{
+	SDL_Surface* textSurface = TTF_RenderText_Solid(font, textureText.c_str(), textColor);
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, textSurface);
+	if (texture == nullptr)
+	{
+		std::cout << IMG_GetError();
+	}
+	return texture;
+}
+
 
 void TD_Render::RenderTexture(SDL_Texture *texture, SDL_Rect dst)
 {

@@ -2,6 +2,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include <iostream>
 
 class TD_Render
@@ -19,6 +20,9 @@ public:
 	path - Путь до изображения
 	*/
 	SDL_Texture *LoadTexture(const std::string &path);
+
+
+	SDL_Texture *LoadText(std::string textureText, TTF_Font *font, SDL_Color textColor, int size);
 
 
 	/*

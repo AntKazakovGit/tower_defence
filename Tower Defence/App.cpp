@@ -71,6 +71,11 @@ SDL_Texture * App::LoadTexture(std::string path)
 	return render->LoadTexture(path);
 }
 
+SDL_Texture *App::LoadText(std::string textureText, TTF_Font *font, SDL_Color textColor, int size)
+{
+	return render->LoadText(textureText, font, textColor, size);
+}
+
 
 // Public
 void App::Init(TD_Render * Render)
