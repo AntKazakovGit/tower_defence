@@ -1,15 +1,15 @@
-#include "App.h"
+п»ї#include "App.h"
 
 void App::OnEvent()
 {
 	switch (appEvent.type)
 	{
-	// Обработка выхода
+	// РћР±СЂР°Р±РѕС‚РєР° РІС‹С…РѕРґР°
 	case SDL_EventType::SDL_QUIT:
 		Event_Exit();
 		break;
 
-	// Обработка нажатия кнопки мыши
+	// РћР±СЂР°Р±РѕС‚РєР° РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРєРё РјС‹С€Рё
 	case SDL_EventType::SDL_MOUSEBUTTONDOWN:
 		switch (appEvent.button.button)
 		{
@@ -24,7 +24,7 @@ void App::OnEvent()
 			break;
 		}
 
-	// Обработка отпускания кнопки мыши
+	// РћР±СЂР°Р±РѕС‚РєР° РѕС‚РїСѓСЃРєР°РЅРёСЏ РєРЅРѕРїРєРё РјС‹С€Рё
 	case SDL_EventType::SDL_MOUSEBUTTONUP:
 		switch (appEvent.button.button)
 		{
@@ -39,12 +39,12 @@ void App::OnEvent()
 			break;
 		}
 
-	// Обработка нажатия клавиши
+	// РћР±СЂР°Р±РѕС‚РєР° РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€Рё
 	case SDL_EventType::SDL_KEYDOWN:
 		Event_KeyDown();
 		break;
 
-	// Обработка отпускания клавиши
+	// РћР±СЂР°Р±РѕС‚РєР° РѕС‚РїСѓСЃРєР°РЅРёСЏ РєР»Р°РІРёС€Рё
 	case SDL_EventType::SDL_KEYUP:
 		Event_KeyUp();
 		break;

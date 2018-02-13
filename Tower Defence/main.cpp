@@ -1,4 +1,4 @@
-#include <vector>
+п»ї#include <vector>
 #include "Render.h"
 #include "Game.h"
 
@@ -6,19 +6,19 @@ int main(int argc, char* args[])
 {	
 	TTF_Init();
 
-	// Создание окна 
+	// РЎРѕР·РґР°РЅРёРµ РѕРєРЅР° 
 	SDL_Window *window = SDL_CreateWindow("Tower Defence", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
 	
-	// Создание рендера
+	// РЎРѕР·РґР°РЅРёРµ СЂРµРЅРґРµСЂР°
 	TD_Render render = TD_Render(window);
 	
-	// Инициализация приложения
+	// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїСЂРёР»РѕР¶РµРЅРёСЏ
 	App::Init(&render);
 	
-	//Создание сцены
+	//РЎРѕР·РґР°РЅРёРµ СЃС†РµРЅС‹
 	Game Scene1;
 
-	// Выполнение сцены
+	// Р’С‹РїРѕР»РЅРµРЅРёРµ СЃС†РµРЅС‹
 	Scene1.Execution();
 	
 	return 0;

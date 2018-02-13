@@ -1,4 +1,4 @@
-#include "Game.h"
+п»ї#include "Game.h"
 
 
 
@@ -44,7 +44,7 @@ void Game::SceneInit()
 void Game::SceneUpdate()
 {
 	if (castleHealth)
-	// Перемещение всех врагов
+	// РџРµСЂРµРјРµС‰РµРЅРёРµ РІСЃРµС… РІСЂР°РіРѕРІ
 	for (int i = 0; i < enemies.size(); i++)
 	{
 		if (!enemies[i].Move(paths))

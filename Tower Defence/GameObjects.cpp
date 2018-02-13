@@ -1,8 +1,8 @@
-#include "GameObjects.h"
+п»ї#include "GameObjects.h"
 
 
 //=======================================================================
-//=== Методы класса Enemy ===============================================
+//=== РњРµС‚РѕРґС‹ РєР»Р°СЃСЃР° Enemy ===============================================
 //=======================================================================
 
 Enemy::Enemy(SDL_Texture * enemyTexture, int X, int Y, int health, int speed) : health(health), speed(speed),	Entity(enemyTexture, X, Y)
@@ -15,7 +15,7 @@ Enemy::~Enemy()
 
 }
 
-// Переделать
+// РџРµСЂРµРґРµР»Р°С‚СЊ
 bool Enemy::Move(std::vector<path> paths)
 {
 	if (paths.size() == 0)
@@ -71,17 +71,17 @@ bool Enemy::Move(std::vector<path> paths)
 
 
 //======================================================================
-//=== Методы класса Tower ==============================================
+//=== РњРµС‚РѕРґС‹ РєР»Р°СЃСЃР° Tower ==============================================
 //======================================================================
 
 Tower::Tower(SDL_Texture * towerTexture, int X, int Y) : Entity(towerTexture, X, Y)
 {
-	// Добавить смену типа врагов
+	// Р”РѕР±Р°РІРёС‚СЊ СЃРјРµРЅСѓ С‚РёРїР° РІСЂР°РіРѕРІ
 }
 
 Tower::Tower(SDL_Texture * towerTexture, int X, int Y, int Width, int Height) : Entity(towerTexture, X, Y, Width, Height)
 {
-	// Добавить смену типа врагов
+	// Р”РѕР±Р°РІРёС‚СЊ СЃРјРµРЅСѓ С‚РёРїР° РІСЂР°РіРѕРІ
 }
 
 Tower::~Tower()
