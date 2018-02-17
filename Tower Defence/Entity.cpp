@@ -1,46 +1,33 @@
 ﻿#include "Entity.h"
 
 
-
-Entity::Entity()
+Entity::Entity(SDL_Texture * texture, int x, int y, std::vector<SDL_Rect> * frames) :
+	texture(texture),
+	frames(frames)
 {
+	SDL_QueryTexture(texture, NULL, NULL, &position.w, &position.h);
+	position.x = x;
+	position.y = y;
+	curFrame = NULL;
 
 }
-
-
-Entity::Entity(SDL_Texture * entityTexture, int X, int Y)
-{
-	texture = entityTexture;
-	rect.x = X;
-	rect.y = Y;
-	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
-}
-
-
-Entity::Entity(SDL_Texture * entityTexture, int X, int Y, int Width, int Height)
-{
-	texture = entityTexture;
-	rect.x = X;
-	rect.y = Y;
-	rect.w = Width;
-	rect.h = Height;
-}
-
 
 Entity::~Entity()
 {
 
 }
 
-
-void Entity::Show(TD_Render * render)
+SDL_Texture * Entity::GetTexture()
 {
-	render->RenderTexture(texture, rect);
+	return texture;
 }
 
-
-void Entity::Show(TD_Render * render, int src_X, int src_Y, int src_W, int src_H)
+SDL_Rect * Entity::GetFrame()
 {
-	SDL_Rect src = { src_X, src_Y, src_W, src_H};
-	render->RenderTexture(texture, src, rect);
+	return curFrame;
+}
+
+SDL_Rect * Entity::GetPosition()
+{
+	return &position;
 }

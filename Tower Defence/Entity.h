@@ -1,59 +1,28 @@
 ﻿#pragma once
 
+#include <vector>
 #include <SDL.h>
-#include "Render.h"
+#include <iostream>
 
 class Entity
 {
-	//Текстура объекта
-	SDL_Texture *texture;
-
-protected:
-	//Координаты и размеры объекта
-	SDL_Rect rect;
+	// Текстура объекта
+	SDL_Texture * texture;
+	// Кадры анимации данного объекта
+	std::vector<SDL_Rect> * frames;
+	// Текущий кадр
+	SDL_Rect * curFrame;
+	// Координаты объекта
+	SDL_Rect position;
 
 public:
-
-	Entity();
-	/*
-	Конструктор объекта без масштабирования 
-	(размеры объекта равны размерам текстуры)
-	entityTexture - текстура объекта
-	X - Координата X объекта
-	Y - Координата Y объекта
-	*/
-	Entity(SDL_Texture *entityTexture, int X, int Y);
-
-
-	/*
-	Конструктор объекта с масштабированием
-	(размеры объекта вводятся вручную)
-	entityTexture - текстура объекта
-	X - Координата X объекта
-	Y - Координата Y объекта
-	*/
-	Entity(SDL_Texture *entityTexture, int X, int Y, int Width, int Height);
-
-
+	Entity(SDL_Texture * texture, int x, int y, std::vector<SDL_Rect>* frames = NULL);
 	~Entity();
-	
+	// Возвращает указатель на текстуру
+	SDL_Texture * GetTexture();
+	// Возврощает координаты той части текстуры которая должна быть выведена на экран
+	SDL_Rect * GetFrame();
+	// Возвращает координаты и размеры объекта
+	SDL_Rect * GetPosition();
 
-	/*
-	Рендер текстуры объекта
-	render - рендер в который будет выведена текстура
-	*/
-	virtual void Show(TD_Render *render);
-
-
-	/*
-	Рендер части текстуры объекта
-	render - рендер в который будет выведена текстура
-	src_X - Координата X части текстуры
-	src_Y - Координата Y части текстуры
-	src_W - Ширина части текстуры
-	src_H - Высота части текстуры
-	*/
-	virtual void Show(TD_Render *render, int src_X, int src_Y, int src_W, int src_H);
 };
-
-
