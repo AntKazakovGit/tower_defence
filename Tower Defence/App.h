@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include <iostream>
 #include <vector>
 #include "Window.h"
 #include "Scene.h"
@@ -12,8 +13,6 @@ class App
 	Window appWindow;
 	// Параметр показывающий работает ли приложение
 	bool running = true;
-	// Графические объекты
-	std::vector<Entity*> entities;
 	// Текущая сцена
 	Scene * curScene;
 	// Обработка событий приложения
