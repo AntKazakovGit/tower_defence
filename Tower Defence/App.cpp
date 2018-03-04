@@ -1,95 +1,94 @@
-#include "App.h"
+п»ї#include "App.h"
 
-bool App::running;
-
-TD_Render *App::render;
-
-SDL_Event App::appEvent;
 
 App::App()
 {
+	curScene = new Scene();
+	this->Execution();
 }
 
 
 App::~App()
 {
+
 }
 
-
-
-// Private
-void App::Render()
-{
-	//Добавление объектов в вектор
-	SetObjects();
-
-	//Очистка экрана
-	render->ClearScreen();
-
-	//Вывод текстур в рендер
-	DrawObjects();
-
-	//Вывод изображения
-	render->Show();
-}
-
-void App::DrawObjects()
-{
-	for (int i = 0; i < objects.size(); i++)
-	{
-		objects[i].Show(render);
-	}
-	objects.clear();
-}
-
-
-// Private - virtual
-void App::SceneRestart()
-{
-	//virtual
-}
-
-void App::SceneUpdate()
-{
-	//virtual
-}
-
-void App::SetObjects()
-{
-	//virtual
-}
-
-
-// Protected
-void App::AddEntities(Entity * entity)
-{
-	objects.push_back(*entity);
-}
-
-
-// Public
-void App::Init(TD_Render * Render)
-{
-	running = true;
-	render = Render;
-}
 
 void App::Execution()
 {
-	//Инициализация объектов и параметров сцены
-	SceneRestart();
-
+	SDL_Event appEvent;
 	while (running)
 	{
-		// Изменение и обновление объектов и параметров сцены
-		SceneUpdate();
-		// Поиск событий
+		curScene->Update();
+
+		// РџРѕРёСЃРє СЃРѕР±С‹С‚РёР№
 		while (SDL_PollEvent(&appEvent))
 		{
-			OnEvent();
+			EventHandling(&appEvent);
 		}
 
-		// Вывод объектов на экран
-		Render();
+		appWindow.UpdateWindow(curScene->GetEntities());
+	}
+}
+
+
+void App::EventHandling(SDL_Event * appEvent)
+{
+	switch (appEvent->type)
+	{
+		// РћР±СЂР°Р±РѕС‚РєР° РІС‹С…РѕРґР°
+	case SDL_EventType::SDL_QUIT:
+		running = false;
+		break;
+
+		// РћР±СЂР°Р±РѕС‚РєР° РґРІРёР¶РµРЅРёСЏ РјС‹С€Рё
+	case SDL_EventType::SDL_MOUSEMOTION:
+		curScene->OnMouseMotion(
+			appEvent->motion.x, 
+			appEvent->motion.y, 
+			appEvent->motion.xrel, 
+			appEvent->motion.yrel, 
+			appEvent->motion.state);
+		break;
+
+		// РћР±СЂР°Р±РѕС‚РєР° РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€ РјС‹С€Рё
+	case SDL_EventType::SDL_MOUSEBUTTONDOWN:
+		switch (appEvent->button.button)
+		{
+		case SDL_BUTTON_LEFT:
+			switch (appEvent->button.clicks)
+			{
+			case 1:
+				curScene->OnLeftButtonClick(appEvent->button.x, appEvent->button.y);
+				break;
+			case 2:
+				curScene->OnLeftButtonDoubleClick(appEvent->button.x, appEvent->button.y);
+				break;
+			}
+			break;
+		case SDL_BUTTON_RIGHT:
+			switch (appEvent->button.clicks)
+			{
+			case 1:
+				curScene->OnRightButtonClick(appEvent->button.x, appEvent->button.y);
+				break;
+			case 2:
+				curScene->OnRightButtonDoubleClick(appEvent->button.x, appEvent->button.y);
+				break;
+			}
+			break;
+		case SDL_BUTTON_MIDDLE:
+			switch (appEvent->button.clicks)
+			{
+			case 1:
+				curScene->OnMiddleButtonClick(appEvent->button.x, appEvent->button.y);
+				break;
+			case 2:
+				curScene->OnMiddleButtonDoubleClick(appEvent->button.x, appEvent->button.y);
+				break;
+			}
+			break;
+		}
+		break;
 	}
 }

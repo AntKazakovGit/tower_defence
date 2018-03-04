@@ -1,27 +1,44 @@
-#pragma once
+п»ї#pragma once
 
 #include "App.h"
 #include "GameObjects.h"
+#include <sstream>
 
 class Game :
 	public App
 {
-	// Имеющееся у игрока золото для постройки башен
+	// Р—РґРѕСЂРѕРІСЊРµ РєСЂРµРїРѕСЃС‚Рё
+	int castleHealth;
+	// РРјРµСЋС‰РµРµСЃСЏ Сѓ РёРіСЂРѕРєР° Р·РѕР»РѕС‚Рѕ РґР»СЏ РїРѕСЃС‚СЂРѕР№РєРё Р±Р°С€РµРЅ
 	int gold;
-	// Список существующих на текущий момент врагов
-	std::vector<Enemy> enemies;
-	// Список существующих на карте башен
-	std::vector<Tower> towers;
+	// РљРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё РїРѕСЏРІР»РµРЅРёСЏ РїСЂРѕС‚РёРІРЅРёРєРѕРІ
+	int spawnPointX, spawnPointY;
+	// РљР°СЂС‚Р°
+	Entity map;
+	// РџР°РЅРµР»СЊ
+	Entity bottomPanel;
+	// РџРѕСЂР°Р¶РµРЅРёРµ
+	Entity gameOver;
+	// РџРѕР±РµРґР°
+	Entity victory;
+	// РЁСЂРёС„С‚ РґР»СЏ С‚РµСЃС‚Р° РёРіСЂС‹
+	TTF_Font *font = NULL;
 
-	// Переопределение SetObjects
+	// РЎРїРёСЃРѕРє СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёС… РЅР° С‚РµРєСѓС‰РёР№ РјРѕРјРµРЅС‚ РІСЂР°РіРѕРІ
+	std::vector<Enemy> enemies;
+	// РЎРїРёСЃРѕРє СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёС… РЅР° РєР°СЂС‚Рµ Р±Р°С€РµРЅ
+	std::vector<Tower> towers;
+	// РџСѓС‚СЊ РїРѕ РєРѕС‚РѕСЂРѕРјСѓ РїРµСЂРµРјРµС‰Р°СЋС‚СЃСЏ РІСЂР°РіРё
+	std::vector<path> paths;
+
+	// РџРµСЂРµРѕРїСЂРµРґРµР»РµРЅРёРµ SetObjects
 	void SetObjects();
-	// Переопределение SceneRestart
-	void SceneRestart();
-	// Переопределение SceneUpdate
+	// РџРµСЂРµРѕРїСЂРµРґРµР»РµРЅРёРµ SceneRestart
+	void SceneInit();
+	// РџРµСЂРµРѕРїСЂРµРґРµР»РµРЅРёРµ SceneUpdate
 	void SceneUpdate();
 
 public:
 	Game();
 	~Game();
 };
-

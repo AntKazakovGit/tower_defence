@@ -1,30 +1,53 @@
-#pragma once
+п»ї#pragma once
 
+#include <vector>
 #include "Entity.h"
 
+enum Directions
+{
+	Left,
+	Right,
+	Top,
+	Bottom
+};
 
-//Класс описывает обьект "Враг"
+struct path
+{
+	int distance;
+	Directions direction;
+};
+
+//РљР»Р°СЃСЃ РѕРїРёСЃС‹РІР°РµС‚ РѕР±СЊРµРєС‚ "Р’СЂР°Рі"
 class Enemy :
 	public Entity
 {
-	//Уровень здоровья 
+	//РЈСЂРѕРІРµРЅСЊ Р·РґРѕСЂРѕРІСЊСЏ 
 	int health;
+	// РўРµРєСѓС‰РёР№ РїСѓС‚СЊ
+	int currentPath = 0;
+	// РџСѓС‚Рё РїСЂРѕР№РґРµРЅРѕ
+	int pathsPassed = 0;
+	// РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРјРµС‰РµРЅРёСЏ	РїРёРєСЃРµР»РµР№ РІ РјРёРЅСѓС‚Сѓ
+	int speed;
+	// Р’СЂРµРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РїРµСЂРµРјРµС‰РµРЅРёСЏ
+	Uint32 lastMove;
 
-	//Можно добавить маг. резист, броню, бафы и дебафы
+	//РњРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ РјР°Рі. СЂРµР·РёСЃС‚, Р±СЂРѕРЅСЋ, Р±Р°С„С‹ Рё РґРµР±Р°С„С‹
 public:
-	Enemy(SDL_Texture * enemyTexture, int X, int Y);
-
-	Enemy(SDL_Texture * enemyTexture, int X, int Y, int Width, int Height);
+	Enemy(SDL_Texture * enemyTexture, int X, int Y, int health, int speed	);
 
 	~Enemy();
+
+	// РћР±СЂР°Р±РѕС‚РєР° РґРІРёР¶РµРЅРёСЏ
+	bool Move(std::vector<path> paths);
 };
 
 
-//Класс описывает объект "Башня"
+//РљР»Р°СЃСЃ РѕРїРёСЃС‹РІР°РµС‚ РѕР±СЉРµРєС‚ "Р‘Р°С€РЅСЏ"
 class Tower :
 	public Entity
 {
-	// Добавить стоимость башни, уровень, урон, радиус, скорость и тип атаки
+	// Р”РѕР±Р°РІРёС‚СЊ СЃС‚РѕРёРјРѕСЃС‚СЊ Р±Р°С€РЅРё, СѓСЂРѕРІРµРЅСЊ, СѓСЂРѕРЅ, СЂР°РґРёСѓСЃ, СЃРєРѕСЂРѕСЃС‚СЊ Рё С‚РёРї Р°С‚Р°РєРё
 public:
 	Tower(SDL_Texture * enemyTexture, int X, int Y);
 
@@ -32,3 +55,4 @@ public:
 
 	~Tower();
 };
+

@@ -1,57 +1,28 @@
-#pragma once
+п»ї#pragma once
 
+#include <vector>
 #include <SDL.h>
-#include "Render.h"
+#include <iostream>
 
 class Entity
 {
-	//Текстура объекта
-	SDL_Texture *texture;
-
-protected:
-	//Координаты и размеры объекта
-	SDL_Rect rect;
+	// РўРµРєСЃС‚СѓСЂР° РѕР±СЉРµРєС‚Р°
+	SDL_Texture * texture;
+	// РљР°РґСЂС‹ Р°РЅРёРјР°С†РёРё РґР°РЅРЅРѕРіРѕ РѕР±СЉРµРєС‚Р°
+	std::vector<SDL_Rect> * frames;
+	// РўРµРєСѓС‰РёР№ РєР°РґСЂ
+	SDL_Rect * curFrame;
+	// РљРѕРѕСЂРґРёРЅР°С‚С‹ РѕР±СЉРµРєС‚Р°
+	SDL_Rect position;
 
 public:
-	/*
-	Конструктор объекта без масштабирования 
-	(размеры объекта равны размерам текстуры)
-	entityTexture - текстура объекта
-	X - Координата X объекта
-	Y - Координата Y объекта
-	*/
-	Entity(SDL_Texture *entityTexture, int X, int Y);
-
-
-	/*
-	Конструктор объекта с масштабированием
-	(размеры объекта вводятся вручную)
-	entityTexture - текстура объекта
-	X - Координата X объекта
-	Y - Координата Y объекта
-	*/
-	Entity(SDL_Texture *entityTexture, int X, int Y, int Width, int Height);
-
-
+	Entity(SDL_Texture * texture, int x, int y, std::vector<SDL_Rect>* frames = NULL);
 	~Entity();
-	
+	// Р’РѕР·РІСЂР°С‰Р°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С‚РµРєСЃС‚СѓСЂСѓ
+	SDL_Texture * GetTexture();
+	// Р’РѕР·РІСЂРѕС‰Р°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕР№ С‡Р°СЃС‚Рё С‚РµРєСЃС‚СѓСЂС‹ РєРѕС‚РѕСЂР°СЏ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІС‹РІРµРґРµРЅР° РЅР° СЌРєСЂР°РЅ
+	SDL_Rect * GetFrame();
+	// Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ Рё СЂР°Р·РјРµСЂС‹ РѕР±СЉРµРєС‚Р°
+	SDL_Rect * GetPosition();
 
-	/*
-	Рендер текстуры объекта
-	render - рендер в который будет выведена текстура
-	*/
-	virtual void Show(TD_Render *render);
-
-
-	/*
-	Рендер части текстуры объекта
-	render - рендер в который будет выведена текстура
-	src_X - Координата X части текстуры
-	src_Y - Координата Y части текстуры
-	src_W - Ширина части текстуры
-	src_H - Высота части текстуры
-	*/
-	virtual void Show(TD_Render *render, int src_X, int src_Y, int src_W, int src_H);
 };
-
-

@@ -1,98 +1,37 @@
-#include "App.h"
+п»ї#include "Scene.h"
 
-void App::OnEvent()
+
+void Scene::OnLeftButtonClick(int x, int y)
 {
-	switch (appEvent.type)
-	{
-	// Обработка выхода
-	case SDL_EventType::SDL_QUIT:
-		Event_Exit();
-		break;
-
-	// Обработка нажатия кнопки мыши
-	case SDL_EventType::SDL_MOUSEBUTTONDOWN:
-		switch (appEvent.button.button)
-		{
-		case SDL_BUTTON_LEFT:
-			Event_LeftButtonDown();
-			break;
-		case SDL_BUTTON_RIGHT:
-			Event_RightButtonDown();
-			break;
-		case SDL_BUTTON_MIDDLE:
-			Event_MiddleButtonDown();
-			break;
-		}
-
-	// Обработка отпускания кнопки мыши
-	case SDL_EventType::SDL_MOUSEBUTTONUP:
-		switch (appEvent.button.button)
-		{
-		case SDL_BUTTON_LEFT:
-			Event_LeftButtonUp();
-			break;
-		case SDL_BUTTON_RIGHT:
-			Event_RightButtonUp();
-			break;
-		case SDL_BUTTON_MIDDLE:
-			Event_MiddleButtonUp();
-			break;
-		}
-
-	// Обработка нажатия клавиши
-	case SDL_EventType::SDL_KEYDOWN:
-		Event_KeyDown();
-		break;
-
-	// Обработка отпускания клавиши
-	case SDL_EventType::SDL_KEYUP:
-		Event_KeyUp();
-		break;
-	}
+	// virtual
 }
 
-
-void App::Event_Exit()
+void Scene::OnLeftButtonDoubleClick(int x, int y)
 {
-	running = false;
+	// virtual
 }
 
-void App::Event_LeftButtonDown()
+void Scene::OnRightButtonClick(int x, int y)
 {
-	//virtual
+	// virtual
 }
 
-void App::Event_RightButtonDown()
+void Scene::OnRightButtonDoubleClick(int x, int y)
 {
-	//virtual
+	// virtual
 }
 
-void App::Event_MiddleButtonDown()
+void Scene::OnMiddleButtonClick(int x, int y)
 {
-	//virtual
+	// virtual
 }
 
-void App::Event_LeftButtonUp()
+void Scene::OnMiddleButtonDoubleClick(int x, int y)
 {
-	//virtual
+	// virtual
 }
 
-void App::Event_RightButtonUp()
+void Scene::OnMouseMotion(int x, int y, int xRel, int yRel, Uint32 buttonState)
 {
-	//virtual
-}
-
-void App::Event_MiddleButtonUp()
-{
-	//virtual
-}
-
-void App::Event_KeyDown()
-{
-	//virtual
-}
-
-void App::Event_KeyUp()
-{
-	//virtual
+	// virtual
 }
