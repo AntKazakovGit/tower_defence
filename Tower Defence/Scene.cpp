@@ -1,4 +1,4 @@
-#include "Scene.h"
+﻿#include "Scene.h"
 
 
 Scene::Scene()
@@ -9,6 +9,11 @@ Scene::Scene()
 Scene::~Scene()
 {
 
+}
+
+void Scene::Update()
+{
+	// virtual
 }
 
 std::vector<Entity*> Scene::GetEntities()

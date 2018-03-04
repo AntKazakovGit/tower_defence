@@ -19,6 +19,8 @@ void App::Execution()
 	SDL_Event appEvent;
 	while (running)
 	{
+		curScene->Update();
+
 		// Поиск событий
 		while (SDL_PollEvent(&appEvent))
 		{

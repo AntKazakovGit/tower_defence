@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include "Window.h"
 
@@ -8,26 +8,29 @@ class Scene
 public:
 	Scene();
 	~Scene();
-	// Возвращает список ссылок на объекты которые должны быть отображены
+	// Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃСЃС‹Р»РѕРє РЅР° РѕР±СЉРµРєС‚С‹ РєРѕС‚РѕСЂС‹Рµ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РѕС‚РѕР±СЂР°Р¶РµРЅС‹
 	virtual std::vector<Entity*> GetEntities();
 
+	// РР·РјРµРЅРµРЅРёРµ СЃС†РµРЅС‹
+	virtual void Update();
+
 	// ==================================
-	// === Обработчики событий ==========
+	// === РћР±СЂР°Р±РѕС‚С‡РёРєРё СЃРѕР±С‹С‚РёР№ ==========
 	// ==================================
 
-	// Клик левой кнопки мыши 
+	// РљР»РёРє Р»РµРІРѕР№ РєРЅРѕРїРєРё РјС‹С€Рё 
 	virtual void OnLeftButtonClick(int x, int y);
-	// Клик правой кнопки мыши
+	// РљР»РёРє РїСЂР°РІРѕР№ РєРЅРѕРїРєРё РјС‹С€Рё
 	virtual void OnRightButtonClick(int x, int y);
-	// Клик средней кнопки мыши
+	// РљР»РёРє СЃСЂРµРґРЅРµР№ РєРЅРѕРїРєРё РјС‹С€Рё
 	virtual void OnMiddleButtonClick(int x, int y);
-	// Клик левой кнопки мыши
+	// РљР»РёРє Р»РµРІРѕР№ РєРЅРѕРїРєРё РјС‹С€Рё
 	virtual void OnLeftButtonDoubleClick(int x, int y);
-	// Клик правой кнопки мыши
+	// РљР»РёРє РїСЂР°РІРѕР№ РєРЅРѕРїРєРё РјС‹С€Рё
 	virtual void OnRightButtonDoubleClick(int x, int y);
-	// Клик средней кнопки мыши
+	// РљР»РёРє СЃСЂРµРґРЅРµР№ РєРЅРѕРїРєРё РјС‹С€Рё
 	virtual void OnMiddleButtonDoubleClick(int x, int y);
-	// Движение мыши
+	// Р”РІРёР¶РµРЅРёРµ РјС‹С€Рё
 	virtual void OnMouseMotion(int x, int y, int xRel, int yRel, Uint32 buttonState);
 
 };
